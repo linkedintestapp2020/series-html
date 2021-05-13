@@ -32,8 +32,8 @@ jobs:
           body="{
               ${auth},
               \"loginType\": 1,
-              \"password\": \"987@@Pts\",
-              \"username\": \"vnijbdeavqvatpssxp@mhzayt.online\"
+              \"password\": \"${{ secrets.PTS_DRAMA_AUTH_PASSWORD }}\",
+              \"username\": \"${{ secrets.PTS_DRAMA_AUTH_ACCOUNT }}\"
             }"
           token="$(curl --location --request POST 'https://www.ptsplus.tv/api/login' --header 'Content-Type: application/json' --data-raw "$body" |  grep -oE '"[a-zA-Z0-9-]+",')"
           token=${token//\"/}

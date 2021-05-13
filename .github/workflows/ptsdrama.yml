@@ -38,12 +38,12 @@ jobs:
           token="$(curl --location --request POST 'https://www.ptsplus.tv/api/login' --header 'Content-Type: application/json' --data-raw "$body" |  grep -oE '"[a-zA-Z0-9-]+",')"
           token=${token//\"/}
           token=${token//,/}
-          echo $token > ptsdrama.html
+          echo $token > ptsdramaauth.html
 
       - name: Commit report
         run: |
           git config --global user.name 'linkedintestapp2020'
           git config --global user.email 'linkedintestapp2020@users.noreply.github.com'
-          git add ptsdrama.html
-          git commit -am "Automated ptsdrama"
+          git add ptsdramaauth.html
+          git commit -am "Automated ptsdramaauth"
           git push
